@@ -36,7 +36,11 @@ pci_address_associate_kuka_right="0000:04:00.0"
 # Define IP address for RT eth0 and eth1
 ip_address_associate_kuka_left="192.168.100.122"
 ip_address_associate_kuka_right="192.168.100.120"
-ip_address_master_rt_net="192.168.100.101"
+
+ip_address_master_rt_net_kuka_right="192.168.100.120"
+ip_address_master_rt_net_kuka_left="192.168.100.122"
+
+
 ip_address_associate_switch="192.168.100.123"
 ip_address_associate_sub_net_switch="192.168.100.0/24"
 
@@ -100,10 +104,10 @@ do_start()
         modprobe rtcap
 
 	echo "rtifconfig up rteth0 for kuka left !"
-	$rtnet_prefix_bin/rtifconfig $rtethX_associate_kuka_left up $ip_address_master_rt_net netmask $netmask_associate_kuka_left hw ether $hw_ethX_associate_kuka_left
+	$rtnet_prefix_bin/rtifconfig $rtethX_associate_kuka_left up $ip_address_master_rt_net_kuka_left netmask $netmask_associate_kuka_left hw ether $hw_ethX_associate_kuka_left
 
 	echo "rtifconfig up rteth1 for kuka right !"
-	$rtnet_prefix_bin/rtifconfig $rtethX_associate_kuka_right up $ip_address_master_rt_net netmask $netmask_associate_kuka_right hw ether $hw_ethX_associate_kuka_right
+	$rtnet_prefix_bin/rtifconfig $rtethX_associate_kuka_right up $ip_address_master_rt_net_kuka_right netmask $netmask_associate_kuka_right hw ether $hw_ethX_associate_kuka_right
 	
 	echo "Start rtlo !"
 	$rtnet_prefix_bin/rtifconfig rtlo up $ip_address_loopback
