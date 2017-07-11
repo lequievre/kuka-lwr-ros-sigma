@@ -1,0 +1,30 @@
+<launch>
+	<!-- LAUNCH INTERFACE FOR REAL ROBOT -->
+	
+	<!-- set the parameters for the real interface -->
+	<!--	
+			49938 = bras droit
+			IP du bras droit : 192.168.100.253
+			
+			49939 = bras gauche
+			IP du bras gauche : 192.168.100.254	
+			
+			IP du PC : 192.168.100.102
+			Masque : 255.255.255.0
+			
+			IP de la tête Robosoft : 192.168.100.252
+			Port : 60000
+			
+			IP Shadow hand: automatiqu
+	-->
+
+    <arg name="fri_driver_file" default="$(find single_lwr_robot)/config/49938-FRI-Driver.init" />
+
+	<param name="fri_driver_file" type="str" value="$(arg fri_driver_file)"/>
+	
+	<group ns="lwr">
+		<param name="robot_namespace" value="lwr"/>
+		<node name="test_move_fril_node" pkg="lwr_hw" type="test_move_fril_node" output="screen"/>
+	</group>
+	
+</launch>

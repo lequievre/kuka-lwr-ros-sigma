@@ -1,0 +1,43 @@
+lwr:
+  # CONTROLLERS USED IN THE EXAMLE
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+
+  # Group Command Controller
+  kuka_group_command_controller:
+    type: kuka_lwr_controllers/GroupCommandController
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+    
+  # Group Command Controller FRI
+  kuka_group_command_controller_fri:
+    type: kuka_lwr_controllers/GroupCommandControllerFRI
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+    
+  # Gravity Compensation Controller  
+  kuka_gravity_compensation_controller:
+     type: kuka_lwr_controllers/GravityCompensationController
+     root_name: lwr_base_link
+     tip_name: lwr_7_link
+
+  # One Task Inverse Kinematics
+  kuka_one_task_inverse_kinematics:
+    type: kuka_lwr_controllers/OneTaskInverseKinematics
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+
+  # One Task Inverse Kinematics FRI
+  kuka_one_task_inverse_kinematics_fri:
+    type: kuka_lwr_controllers/OneTaskInverseKinematicsFRI
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+    
+  # Cartesian Velocity Control
+  cartesian_velocity_control:
+    type: kuka_lwr_controllers/CartesianVelocityControl
+    root_name: lwr_base_link
+    tip_name: lwr_7_link
+
+
